@@ -3,7 +3,7 @@ import { Calendar, MapPin, Trophy, Building2, ArrowUpRight, Users } from "lucide
 import { PageHeader } from "@/components/layout/page-header";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import { Reveal } from "@/components/motion/reveal";
-import { PlayersShowcase } from "@/components/sections/players-showcase";
+import { Counter } from "@/components/motion/counter";
 import { VenueDirectory } from "@/components/sections/venue-directory";
 import { IndiaMap } from "@/components/sections/india-map";
 import { ButtonLink } from "@/components/ui/button";
@@ -17,9 +17,16 @@ export const metadata: Metadata = {
 };
 
 const subs = [
-  { href: "#players", label: "Players", icon: Users },
+  { href: "#pulse", label: "The Community", icon: Users },
   { href: "#clubs", label: "Clubs & Academies", icon: Building2 },
   { href: "#tournaments", label: "Tournaments", icon: Trophy },
+];
+
+const pulse = [
+  { label: "Registered Players", value: 800, suffix: "+" },
+  { label: "Affiliated Clubs", value: 100, suffix: "+" },
+  { label: "Affiliated Venues", value: 105 },
+  { label: "District Bodies", value: 6 },
 ];
 
 export default function CommunityPage() {
@@ -51,27 +58,54 @@ export default function CommunityPage() {
         </div>
       </div>
 
-      {/* Players */}
-      <Section id="players">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            kicker="Players"
-            title={
-              <>
-                Meet the <span className="text-gold">players.</span>
-              </>
-            }
-            intro="Tap any player for their profile — and sign up to get your own RPA player ID."
-          />
-          <Reveal>
-            <ButtonLink href={links.playerForm} target="_blank" rel="noopener noreferrer" variant="gold" arrow>
-              Register as a player
-            </ButtonLink>
-          </Reveal>
-        </div>
-        <div className="mt-10">
-          <PlayersShowcase />
-        </div>
+      {/* Community pulse */}
+      <Section id="pulse">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[2rem] bg-night p-8 text-paper sm:p-12">
+            <div className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-gold/25 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 size-72 rounded-full bg-teal/25 blur-3xl" />
+            <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_1.4fr]">
+              <div>
+                <span className="kicker inline-flex items-center gap-2.5 text-mint">
+                  <span className="size-2 rounded-full bg-gold" />
+                  The Community
+                </span>
+                <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+                  A movement, <span className="text-gold-bright">by the numbers.</span>
+                </h2>
+                <p className="mt-3 max-w-sm text-white/70">
+                  Every one of these numbers is a player, a court or a community —
+                  and there&apos;s room for you.
+                </p>
+                <ButtonLink
+                  href={links.playerForm}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="gold"
+                  arrow
+                  className="mt-7"
+                >
+                  Register as a player
+                </ButtonLink>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {pulse.map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-sm transition-colors hover:border-gold/40"
+                  >
+                    <div className="font-display text-4xl font-extrabold text-gold-bright sm:text-5xl">
+                      <Counter to={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="mt-1.5 text-[0.7rem] font-medium uppercase tracking-wider text-white/60">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Clubs & Academies */}
