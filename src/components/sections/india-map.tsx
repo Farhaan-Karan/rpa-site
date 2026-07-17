@@ -28,13 +28,24 @@ export function IndiaMap() {
       if (cancelled || !ref.current || ref.current.dataset.init) return;
       ref.current.dataset.init = "1";
 
+      // On touch devices the map must NOT capture one-finger drags, or the
+      // page stops scrolling the moment a finger lands on it.
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
       map = L.map(ref.current, {
         center: CENTER,
         zoom: ZOOM,
         scrollWheelZoom: false,
+        dragging: !isTouch,
+        tapHold: false,
         zoomControl: true,
         attributionControl: false,
       });
+
+      // Let vertical swipes pass through to the page on touch devices.
+      ref.current.style.touchAction = "pan-y";
+      const container = map.getContainer();
+      container.style.touchAction = "pan-y";
 
       L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
