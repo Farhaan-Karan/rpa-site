@@ -1,65 +1,95 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Building2, UserPlus } from "lucide-react";
+import { Hero } from "@/components/sections/hero";
+import { DistrictsBar } from "@/components/sections/districts-bar";
+import { NewsPreview } from "@/components/sections/news-preview";
+import { MembershipCTA } from "@/components/sections/cta";
+import { Reveal } from "@/components/motion/reveal";
+import { Instagram } from "@/components/ui/icons";
+import { links, siteConfig } from "@/lib/site";
+
+const tabs = [
+  {
+    href: "/community",
+    label: "Clubs",
+    title: "Find a club",
+    text: "Browse 100+ affiliated clubs and academies across six districts.",
+    icon: Building2,
+    external: false,
+    cls: "bg-teal text-paper",
+    chip: "bg-paper/15",
+  },
+  {
+    href: "/join",
+    label: "Become a Member",
+    title: "Join RPA",
+    text: "Get your official player ID, ranking points and tournament access.",
+    icon: UserPlus,
+    external: false,
+    cls: "bg-gold text-paper",
+    chip: "bg-paper/15",
+  },
+  {
+    href: links.instagram,
+    label: "Instagram",
+    title: siteConfig.instagramHandle,
+    text: "Reels, district highlights and official announcements.",
+    icon: Instagram,
+    external: true,
+    cls: "bg-night text-paper",
+    chip: "bg-paper/10",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero />
+
+      {/* Three tabs */}
+      <section className="edge bg-cream pb-8 pt-4">
+        <div className="mx-auto grid max-w-[1400px] gap-5 md:grid-cols-3">
+          {tabs.map((t, i) => {
+            const Card = (
+              <div
+                className={`group flex h-full flex-col justify-between rounded-2xl p-7 transition-transform duration-300 hover:-translate-y-1.5 ${t.cls}`}
+              >
+                <div>
+                  <div className={`inline-flex size-12 items-center justify-center rounded-xl ${t.chip}`}>
+                    <t.icon className="size-6" />
+                  </div>
+                  <div className="mt-6 font-mono text-[0.68rem] uppercase tracking-[0.24em] opacity-75">
+                    {t.label}
+                  </div>
+                  <h3 className="mt-1.5 font-display text-2xl font-extrabold">{t.title}</h3>
+                  <p className="mt-2.5 text-[0.95rem] leading-relaxed opacity-85">{t.text}</p>
+                </div>
+                <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold">
+                  {t.external ? "Follow" : "Open"}
+                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            );
+            return (
+              <Reveal key={t.label} delay={i}>
+                {t.external ? (
+                  <a href={t.href} target="_blank" rel="noopener noreferrer" className="block h-full">
+                    {Card}
+                  </a>
+                ) : (
+                  <Link href={t.href} className="block h-full">
+                    {Card}
+                  </Link>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <DistrictsBar />
+      <NewsPreview />
+      <MembershipCTA />
+    </>
   );
 }

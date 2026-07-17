@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rajasthan Pickleball Association — Official Website
 
-## Getting Started
+The digital home of pickleball in Rajasthan. A premium, production-ready website
+built to the standard of the world's leading sports bodies (F1, ATP, NBA,
+Wimbledon).
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16** (App Router, Turbopack) · **TypeScript**
+- **Tailwind CSS v4** (CSS-first design system in `globals.css`)
+- **Framer Motion** (scroll reveals, animated counters, layout transitions)
+- **Supabase** (`@supabase/ssr`) — backend-ready, query-swap architecture
+- **lucide-react** icons · custom SVG brand mark
+
+## Design system
+
+Defined in [`src/app/globals.css`](src/app/globals.css):
+
+| Token | Value |
+| --- | --- |
+| Ink (primary) | `#111111` |
+| Paper | `#FFFFFF` |
+| Royal Rajasthan Gold | `#D4A017` |
+| Mist / Line | `#F7F7F7` / `#EAEAEA` |
+
+- **Display:** Bricolage Grotesque · **Body:** Inter · **Mono/labels:** JetBrains Mono
+- Premium easing `cubic-bezier(0.16,1,0.3,1)`, generous whitespace, reduced-motion safe.
+
+## Structure
+
+```
+src/
+  app/                 # Routes (App Router)
+    page.tsx           # Homepage (hero, stats, about, map, tournaments, players, news, sponsors, CTA)
+    about/ leadership/ tournaments/[slug]/ rankings/
+    players/[slug]/ courts/ clubs/ membership/ media/[slug]/ contact/
+    sitemap.ts robots.ts not-found.tsx
+  components/
+    layout/            # navbar, footer, logo, page-header
+    sections/          # homepage + reusable sections (hero, map, bracket, …)
+    ui/                # button, cards, primitives (Section, SectionHeading, Badge…)
+    motion/            # Reveal, Counter
+  lib/
+    data.ts            # Typed sample data — shapes mirror Supabase tables
+    supabase.ts        # Browser client (query-swap ready)
+    site.ts utils.ts
+public/images/         # Higgsfield-generated premium sports imagery
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Imagery
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All hero/portrait/editorial imagery in `public/images/` was generated with
+Higgsfield (nano_banana_pro), art-directed for a black-and-gold, golden-hour
+Rajasthan aesthetic. The hero supports an optional background video at
+`public/videos/hero.mp4` and gracefully falls back to `hero.jpg` as the poster.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Connecting Supabase
 
-## Learn More
+1. Create a project at [supabase.com](https://supabase.com).
+2. Copy `.env.example` → `.env.local` and fill in the URL + anon key.
+3. Create tables matching the shapes in `src/lib/data.ts`
+   (`players`, `tournaments`, `rankings`, `clubs`, `courts`, `news`,
+   `sponsors`, `memberships`).
+4. Swap each static import for a query, e.g.
+   ```ts
+   const supabase = getSupabaseBrowser();
+   const { data: players } = await supabase.from("players").select("*").order("rank");
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## Develop
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (36 static/SSG routes)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Full-screen cinematic hero with CTAs and live stat ticker
+- Animated live statistics, interactive Rajasthan map (6 city hubs)
+- Tournament listing + detail with championship brackets and registration
+- Dynamic rankings (Men / Women / Junior / Doubles) with movement indicators
+- Searchable, filterable player directory + rich player profiles
+- Court locator with filters and a live map panel
+- Clubs & academies directory; membership plans + application form
+- Media centre (news, films, gallery) + article pages
+- Modern contact experience
+- SEO: per-page metadata, OpenGraph, JSON-LD `SportsOrganization`, sitemap, robots
+- Accessible, mobile-first, reduced-motion aware, Lighthouse-optimized
