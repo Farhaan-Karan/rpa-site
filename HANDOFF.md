@@ -8,17 +8,18 @@
 **Dev:** `.claude/launch.json` → `rpa-dev` (npm run dev, port 3000). Build: `npm run build`.
 **AGENTS.md:** says read `node_modules/next/dist/docs/` before writing code (custom Next 16.2.9).
 
-## ⚠️ OPEN / IN-PROGRESS — RPA campaign posters ("make it insane")
-The user pasted **10 campaign posters** (Chinkara mascot, players in RPA jerseys, taglines) into chat but they are **NOT on disk** — pasted chat images can't be extracted to files. A `Campaign` section (`src/components/sections/campaign.tsx`) is **already built and wired into the home page** (`src/app/page.tsx`, between `<DistrictsBar/>` and `<NewsPreview/>`). It renders a **Chinkara mascot band + an auto-scrolling poster wall**. It references these files that must be added to `public/images/`:
-- `poster-chinkara.png` — the dark "RPA CHINKARA · Desert Speed. Desert Spirit." mascot poster (portrait) — used as the mascot hero image.
+## ✅ DONE — RPA campaign posters ("make it insane")
+**Resolved 2026-07-23 (deployed live).** The user saved the 10 campaign posters (Chinkara mascot, players in RPA jerseys) from WhatsApp into `~/Downloads` as UUID-named `.JPG` files (all timestamped 2026-07-21 17:47–17:48). 8 were converted (`sips -s format png`) into `public/images/` and wired into the `Campaign` section (`src/components/sections/campaign.tsx`, on the home page between `<DistrictsBar/>` and `<NewsPreview/>` — Chinkara mascot band + auto-scrolling poster wall):
+- `poster-chinkara.png` — dark "RPA CHINKARA · Desert Speed. Desert Spirit." mascot (hero image).
 - `poster-legacy.png` — "RPA LEGACY" (cream, woman + chinkara + Rajasthan map).
 - `poster-matchday.png` — "MATCH DAY" (5 players, dramatic).
 - `poster-vijeta.png` — "VIJETA RPA" (4 players, gold).
 - `poster-champpoint.png` — "Championship POINT" (player mid-jump, portrait).
 - `poster-splatter.png` — ink-splatter chinkara + player (cream).
 - `poster-winning.png` — "RPA WINNING CULTURE" (team, yellow, landscape).
+- `poster-playbold.png` — "PLAY BOLD · LIVE ACTIVE" (teal/orange landscape) — added to the marquee.
 
-**To finish:** get those 7 posters saved as files (ask user to drop them in `~/Downloads` or straight into `public/images/`), name them as above, then `npm run build` + deploy. Until the files exist the home page shows broken images, so **this change is committed to GitHub but NOT deployed** — the live site is the previous good build. Best clean posters for other spots: `poster-playbold` (PLAY BOLD LIVE ACTIVE, teal/orange) would make a great hero/section band too.
+Source JPGs are WhatsApp-compressed (~1024px tall) — fine for web (Next optimizes to WebP) but swap for HD if provided. **2 unused alternates still only in `~/Downloads`:** `e43c11e9…` ("Born to Lead" triptych) and `856e4439…` ("Play·Compete·Represent" teal badge) — not placed; add if wanted. See the `rpa-campaign-poster-files` memory for the full UUID→name mapping.
 
 ## Stack
 Next.js 16.2.9 (App Router, Turbopack), TypeScript, Tailwind v4 (tokens in `src/app/globals.css` `@theme`), framer-motion, Leaflet (map), lucide-react **v1.21 fork (NO brand icons — Instagram glyph is in `src/components/ui/icons.tsx`)**. Supabase scaffolded but unused. **Lenis was removed** — native scroll everywhere (fixed repeated scroll-trap complaints); CSS `scroll-behavior:smooth` + `[id]{scroll-margin-top:96px}` handle anchors; `BackToTop` uses `window.scrollTo`.
@@ -47,4 +48,4 @@ Instagram only (YouTube removed). Columns: Explore / Community (Players,Clubs,To
 Wants bold/insane but **clean, NOT "AI-looking"** (no shimmer/shader/grain/scramble). Light cream heroes, logo-matched teal/orange, phones must work (verified 375px). Rapid WhatsApp change-lists → deploy to Vercel + push to GitHub after each batch → show, don't tell (verify via DOM; headless screenshots go **white at scroll offsets** — a preview artifact, not a bug; inject `#fr` style forcing opacity:1 to see reveals, and `sessionStorage.setItem('rpa-intro','1')` to skip preloader).
 
 ## Still needs assets from the user (flagged)
-Custom domain **www.rajasthanpickleball.com** (Vercel domain + DNS — user action). **HD logo**. **10 campaign posters as files** (see top). **Individual leader Instagram handles**. **Jersey link** (About). IPA Nationals 2025 / Pickle Up footage. Instagram-feed embed on landing.
+Custom domain **www.rajasthanpickleball.com** (Vercel domain + DNS — user action). **HD logo**. **Individual leader Instagram handles**. **Jersey link** (About). IPA Nationals 2025 / Pickle Up footage. Instagram-feed embed on landing. *(Campaign posters — DONE, see top; HD re-uploads welcome if available.)*
