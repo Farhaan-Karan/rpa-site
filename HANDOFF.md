@@ -19,7 +19,9 @@
 - `poster-winning.png` — "RPA WINNING CULTURE" (team, yellow, landscape).
 - `poster-playbold.png` — "PLAY BOLD · LIVE ACTIVE" (teal/orange landscape) — added to the marquee.
 
-Source JPGs are WhatsApp-compressed (~1024px tall) — fine for web (Next optimizes to WebP) but swap for HD if provided. **2 unused alternates still only in `~/Downloads`:** `e43c11e9…` ("Born to Lead" triptych) and `856e4439…` ("Play·Compete·Represent" teal badge) — not placed; add if wanted. See the `rpa-campaign-poster-files` memory for the full UUID→name mapping.
+Source JPGs are WhatsApp-compressed (~1024px tall) — fine for web (Next optimizes to WebP) but swap for HD if provided. All 10 posters are now saved (the 2 former alternates `e43c11e9…`→`poster-bornlead.png` and `856e4439…`→`poster-represent.png` were added too). See the `rpa-campaign-poster-files` memory for the full UUID→name mapping.
+
+**Posters are spread site-wide (not just the home wall)** via a reusable `src/components/sections/poster-feature.tsx` exporting **`PosterFeature`** (framed poster + editorial copy, 2-col, reversible, `tone` cream/night, optional `cta`, `ratio`/`maxW` props) and **`PosterBanner`** (full-width landscape poster, optional `eyebrow`). Placements: **Home** = Campaign (chinkara hero + marquee wall); **About** = `legacy` (cream, after Vision) + `bornlead` (night, before Leadership); **Community** = `winning` banner (after pulse) + `matchday` (night, before Tournaments); **Learn** = `playbold` banner (after Basics); **Join** = `represent` (night, after header). All verified live 2026-07-23.
 
 ## Stack
 Next.js 16.2.9 (App Router, Turbopack), TypeScript, Tailwind v4 (tokens in `src/app/globals.css` `@theme`), framer-motion, Leaflet (map), lucide-react **v1.21 fork (NO brand icons — Instagram glyph is in `src/components/ui/icons.tsx`)**. Supabase scaffolded but unused. **Lenis was removed** — native scroll everywhere (fixed repeated scroll-trap complaints); CSS `scroll-behavior:smooth` + `[id]{scroll-margin-top:96px}` handle anchors; `BackToTop` uses `window.scrollTo`.
