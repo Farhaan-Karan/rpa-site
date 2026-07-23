@@ -90,6 +90,9 @@
     overflow-x: hidden;
   }
 
+  /* anchor targets clear the fixed navbar */
+  [id] { scroll-margin-top: 96px; }
+
   .font-script { font-family: var(--font-script); }
 
   ::selection {

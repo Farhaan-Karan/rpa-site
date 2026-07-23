@@ -45,7 +45,7 @@ export function DistrictsBar() {
             Districts across Rajasthan
           </h2>
           <Link
-            href="/community#clubs"
+            href="/about#districts"
             className="mt-2 inline-flex items-center gap-1 border-b border-white/50 pb-0.5 text-sm font-semibold text-white/90 transition-colors hover:border-white hover:text-white"
           >
             Explore all districts <ArrowUpRight className="size-3.5" />

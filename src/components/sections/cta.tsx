@@ -8,8 +8,8 @@ import { Instagram } from "@/components/ui/icons";
 
 const steps = [
   { n: "01", t: "Register", d: "Sign up on the official IPA portal or our membership form — it takes two minutes." },
-  { n: "02", t: "Get your Player ID", d: "Receive your RPA member ID, tournament eligibility and ranking points." },
-  { n: "03", t: "Find your court", d: "Pick from 105 affiliated venues, show up and play. Beginners always welcome." },
+  { n: "02", t: "Get your Player ID", d: "Receive your official IPA player ID, tournament eligibility and ranking points." },
+  { n: "03", t: "Find your court", d: "Pick from more than 100 venues, show up, and play. Beginners always welcome." },
 ];
 
 export function MembershipCTA() {
@@ -58,7 +58,7 @@ export function MembershipCTA() {
                 variant="ghostLight"
                 size="lg"
               >
-                <Instagram className="size-4" /> Follow @rajasthan_pickleball
+                <Instagram className="size-4" /> Follow us on Instagram
               </ButtonLink>
             </div>
           </Reveal>

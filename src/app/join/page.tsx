@@ -17,8 +17,12 @@ const options = [
     icon: UserPlus,
     tag: "For Players",
     title: "Player Registration",
-    text: "Get your official IPA / RPA player ID, become eligible for sanctioned events and earn national ranking points.",
-    perks: ["Official player ID", "Tournament eligibility", "PWR ranking points"],
+    text: "Register as an official IPA player to receive your unique player ID, compete in sanctioned tournaments, and earn points toward recognised national rankings.",
+    perks: [
+      "Earn PWR points and improve on the recognised national rankings",
+      "Be part of India's leading ecosystem to nurture professional players",
+      "Gain access to a greater number of sanctioned tournaments",
+    ],
     cta: "Register on IPA Portal",
     href: links.registration,
     theme: "gold",
@@ -27,8 +31,12 @@ const options = [
     icon: Building2,
     tag: "For Venues",
     title: "Club / Academy Registration",
-    text: "Affiliate your club or academy with RPA to join the official network of 100+ venues and host sanctioned play.",
-    perks: ["Official affiliation badge", "Listing in our directory", "Right to host events"],
+    text: "Affiliate your club or academy with IPA to join Rajasthan's official network of 100+ venues, access recognised player pathways, and host sanctioned tournaments and competitive play.",
+    perks: [
+      "Right to host IPA-sanctioned events with PWR rankings",
+      "Marketing support from IPA's robust ecosystem",
+      "Access to exclusive partner equipment offers at discounted rates",
+    ],
     cta: "Open Registration Form",
     href: links.clubForm,
     theme: "teal",
@@ -37,8 +45,12 @@ const options = [
     icon: Trophy,
     tag: "For Organisers",
     title: "Tournament Sanction Approval",
-    text: "Running an event? Apply to have it officially sanctioned under the IPA so results count towards PWR rankings.",
-    perks: ["Official IPA sanctioning", "PWR ranking points", "Listed on the calendar"],
+    text: "Planning a tournament? Apply for official sanctioning under the IPA so your event is formally recognised and eligible results can count towards PWR rankings.",
+    perks: [
+      "PWR points and ranking benefits for participating players",
+      "Official sanction letters, branding guidelines, and promotional support for licensed tournaments",
+      "On-ground and marketing support from RPA",
+    ],
     cta: "Open Sanction Form",
     href: links.tournamentForm,
     theme: "ink",
@@ -98,23 +110,25 @@ export default function JoinPage() {
                   </h2>
                   <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">{o.text}</p>
 
-                  <ul className="mt-5 space-y-2.5">
+                  <ul className="mt-6 space-y-3">
                     {o.perks.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-sm text-ink">
+                      <li key={p} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink">
                         <Check className={`mt-0.5 size-4 shrink-0 ${t.check}`} />
                         {p}
                       </li>
                     ))}
                   </ul>
 
-                  <a
-                    href={o.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition-colors ${t.btn}`}
-                  >
-                    {o.cta} <ArrowUpRight className="size-4" />
-                  </a>
+                  <div className="mt-auto pt-10">
+                    <a
+                      href={o.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition-colors ${t.btn}`}
+                    >
+                      {o.cta} <ArrowUpRight className="size-4" />
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             );

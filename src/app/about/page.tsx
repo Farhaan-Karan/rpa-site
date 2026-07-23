@@ -7,8 +7,9 @@ import { ButtonLink } from "@/components/ui/button";
 import { districts, districtBodies } from "@/lib/clubs";
 import { PresidentMessage } from "@/components/sections/president-message";
 import { Counter } from "@/components/motion/counter";
+import { Instagram } from "@/components/ui/icons";
 import { leadership } from "@/lib/data";
-import { links } from "@/lib/site";
+import { links, siteConfig } from "@/lib/site";
 import { IdCard, TrendingUp, MapPinned, HeartHandshake, ArrowUpRight, Star, Phone, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 const whyJoin = [
   { icon: IdCard, title: "Official Player ID", text: "Your recognised RPA / IPA identity to compete and represent Rajasthan." },
   { icon: TrendingUp, title: "Ranking Points", text: "Earn national PWR points at sanctioned tournaments across the state." },
-  { icon: MapPinned, title: "105 Venues", text: "Play at any affiliated club or academy — six districts and growing." },
+  { icon: MapPinned, title: "100+ Venues", text: "Play at any of the pickle clubs and academies mapped across six districts." },
   { icon: HeartHandshake, title: "Real Community", text: "Leagues, open play and events that welcome every age and level." },
 ];
 
@@ -36,7 +37,7 @@ export default function AboutPage() {
             Rajasthan.
           </>
         }
-        intro="The Rajasthan Pickleball Association is the state body growing the game — affiliated to the Indian Pickleball Association and built by players, for players."
+        intro="Rajasthan Pickleball Association is the official state governing body for the sport — affiliated with the Indian Pickleball Association and driven by a simple philosophy: built by players, for players."
         image="/images/community.jpg"
       />
 
@@ -44,9 +45,9 @@ export default function AboutPage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-3">
           {[
-            { k: "Vision", t: "To make Rajasthan India's leading pickleball state — a model for grassroots growth and competitive excellence." },
-            { k: "Mission", t: "To make the sport accessible in every community and build a professional, transparent ecosystem for all." },
-            { k: "Values", t: "Integrity, inclusion and ambition — welcoming everyone from first-timers to national contenders." },
+            { k: "Vision", t: "To establish Rajasthan as India's leading pickleball state — setting the national benchmark for grassroots development, player pathways, and competitive excellence." },
+            { k: "Mission", t: "To make pickleball accessible across every community while building a professional, transparent, and inclusive ecosystem in which players, coaches, clubs, and officials can thrive." },
+            { k: "Values", t: "Integrity, inclusion, and excellence — creating a welcoming, nurturing pathway for everyone, from first-time players to professional athletes." },
           ].map((c, i) => (
             <Reveal key={c.k} delay={i}>
               <div className="h-full rounded-2xl border border-line bg-paper p-7">
@@ -72,18 +73,29 @@ export default function AboutPage() {
               <span className="text-gold-bright">Indian Pickleball Association</span>.
             </h2>
             <p className="mt-3 text-white/70">
-              RPA is recognised under the IPA — so every sanctioned event and player
-              ID counts towards national rankings and pathways.
+              RPA is officially affiliated with the Indian Pickleball Association,
+              ensuring that every sanctioned tournament and registered player
+              contributes to recognised national rankings and development pathways.
             </p>
           </div>
-          <a
-            href={links.ipa}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-paper transition-colors hover:bg-gold-deep"
-          >
-            Visit IPA <ArrowUpRight className="size-4" />
-          </a>
+          <div className="flex shrink-0 flex-col gap-3">
+            <a
+              href={links.ipa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-paper transition-colors hover:bg-gold-deep"
+            >
+              Visit IPA <ArrowUpRight className="size-4" />
+            </a>
+            <a
+              href={siteConfig.ipaInstagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 font-semibold text-paper transition-colors hover:bg-white/10"
+            >
+              <Instagram className="size-4" /> IPA on Instagram
+            </a>
+          </div>
         </div>
       </section>
 
@@ -93,10 +105,10 @@ export default function AboutPage() {
           kicker="Why Join"
           title={
             <>
-              More than a membership — <span className="text-brand-gradient">a movement.</span>
+              More than a membership — <span className="text-brand-gradient">it is a movement.</span>
             </>
           }
-          intro="Being part of RPA connects you to the fastest-growing sport in the state, with everything you need to play, compete and belong."
+          intro="Joining RPA connects you to one of Rajasthan's fastest-growing sporting communities, giving you the platform, opportunities, and support to play, compete, progress, and truly belong."
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {whyJoin.map((w, i) => (
@@ -157,10 +169,10 @@ export default function AboutPage() {
           kicker="Leadership"
           title={
             <>
-              Meet the <span className="text-gold">Leaders.</span>
+              Meet the <span className="text-gold">Leadership Team.</span>
             </>
           }
-          intro="The people driving pickleball forward across Rajasthan."
+          intro="The people driving pickleball forward across Rajasthan. Tap a photo to follow along."
         />
         <div className="mt-16 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-end lg:gap-10">
           {leadership.map((l, i) => {
@@ -181,8 +193,12 @@ export default function AboutPage() {
                 {isPres && (
                   <div className="pointer-events-none absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-gold/45 via-gold/20 to-teal/35 blur-2xl" />
                 )}
-                <div
-                  className={`relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-night transition-transform duration-500 group-hover:-translate-y-2 ${
+                <a
+                  href={l.instagram ?? siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${l.name} on Instagram`}
+                  className={`relative block aspect-[4/5] overflow-hidden rounded-[2rem] bg-night transition-transform duration-500 group-hover:-translate-y-2 ${
                     isPres
                       ? "shadow-[0_40px_80px_-36px_rgba(170,88,35,0.55)] ring-2 ring-gold/60"
                       : "shadow-[0_28px_60px_-34px_rgba(17,33,39,0.6)] ring-1 ring-line"
@@ -192,10 +208,14 @@ export default function AboutPage() {
                     src={l.photo}
                     alt={l.name}
                     fill
+                    draggable={false}
                     sizes="420px"
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                    className="select-none object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent" />
+                  <span className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-night/50 text-paper opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
+                    <Instagram className="size-4" />
+                  </span>
                   {isPres && (
                     <span className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[0.64rem] font-bold uppercase tracking-wide text-paper shadow-lg">
                       <Star className="size-3.5" /> President
@@ -214,7 +234,7 @@ export default function AboutPage() {
                       {l.role}
                     </div>
                   </div>
-                </div>
+                </a>
               </Reveal>
             );
           })}
@@ -227,7 +247,7 @@ export default function AboutPage() {
       </Section>
 
       {/* District Bodies */}
-      <Section className="bg-mist">
+      <Section id="districts" className="bg-mist">
         <SectionHeading
           align="center"
           kicker="District Bodies"

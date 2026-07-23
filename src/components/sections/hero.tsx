@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { UserPlus, MapPin } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
-import { Instagram } from "@/components/ui/icons";
 import { Pickleball } from "@/components/motion/pickleball";
 import { Counter } from "@/components/motion/counter";
 import { liveStats } from "@/lib/data";
@@ -19,7 +18,7 @@ export function Hero() {
       <div className="pointer-events-none absolute -left-40 top-10 size-[42vw] rounded-full bg-gold/12 blur-[120px]" />
       <div className="pointer-events-none absolute -right-40 top-40 size-[40vw] rounded-full bg-teal/12 blur-[120px]" />
 
-      <div className="edge relative mx-auto grid max-w-[1400px] items-center gap-12 pb-16 pt-32 sm:pt-36 lg:grid-cols-[1.02fr_1fr] lg:gap-10 lg:pb-24">
+      <div className="edge relative mx-auto grid max-w-[1400px] items-center gap-10 pb-16 pt-32 sm:pt-36 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12 lg:pb-20">
         {/* Copy */}
         <div>
           <motion.p
@@ -47,9 +46,19 @@ export function Hero() {
             transition={{ delay: 0.25, duration: 0.8, ease }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft"
           >
-            The official body growing the game across the state — an affiliated
-            member of the Indian Pickleball Association. Home to 800+ players and
-            100+ clubs across six districts.
+            The official body driving the growth of pickleball across Rajasthan, RPA
+            is an affiliated member of the{" "}
+            <a
+              href={links.ipa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-teal underline decoration-teal/40 underline-offset-2 hover:text-teal-deep"
+            >
+              Indian Pickleball Association
+            </a>
+            . With a thriving community of over 800 players and 100 clubs across six
+            districts, RPA is building a strong, inclusive, and competitive future for
+            the sport throughout Rajasthan.
           </motion.p>
 
           <motion.div
@@ -61,17 +70,8 @@ export function Hero() {
             <ButtonLink href="/join" variant="gold" size="lg" arrow>
               <UserPlus className="size-4" /> Become a Member
             </ButtonLink>
-            <ButtonLink href="/community" variant="outline" size="lg">
-              <MapPin className="size-4" /> Explore Clubs
-            </ButtonLink>
-            <ButtonLink
-              href={links.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="ghost"
-              size="lg"
-            >
-              <Instagram className="size-4" /> Instagram
+            <ButtonLink href="/community#clubs" variant="outline" size="lg">
+              <MapPin className="size-4" /> Find a Court
             </ButtonLink>
           </motion.div>
 
@@ -102,18 +102,18 @@ export function Hero() {
           className="relative"
         >
           <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-gold/25 to-teal/25 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-paper shadow-[0_30px_70px_-30px_rgba(17,33,39,0.4)]">
+          <div className="relative aspect-[7/5] overflow-hidden rounded-[1.75rem] border border-line bg-paper shadow-[0_30px_70px_-30px_rgba(17,33,39,0.4)] lg:aspect-[8/6]">
             <Image
               src="/images/nihal-home.png"
               alt="Rajasthan pickleball — courts, paddles and the Hawa Mahal"
-              width={1672}
-              height={941}
+              fill
               priority
-              className="h-auto w-full"
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="scale-[1.08] object-cover object-center"
             />
           </div>
           <Pickleball
-            size={92}
+            size={96}
             className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8"
           />
         </motion.div>

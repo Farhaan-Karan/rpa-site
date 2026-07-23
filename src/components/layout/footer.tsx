@@ -25,10 +25,10 @@ const columns = [
   {
     title: "Community",
     links: [
-      { label: "Affiliated Clubs", href: "/community" },
-      { label: "Sanctioned Tournaments", href: "/community#tournaments" },
-      { label: "Rulebook", href: links.rulebook, external: true },
-      { label: "FAQs", href: "/learn" },
+      { label: "Players", href: "/community#pulse" },
+      { label: "Clubs", href: "/community#clubs" },
+      { label: "Tournaments", href: "/community#tournaments" },
+      { label: "Instagram", href: links.instagram, external: true },
     ],
   },
   {
@@ -37,7 +37,7 @@ const columns = [
       { label: "Player Registration", href: links.registration, external: true },
       { label: "Club / Academy Form", href: links.clubForm, external: true },
       { label: "Tournament Sanction", href: links.tournamentForm, external: true },
-      { label: "Instagram", href: links.instagram, external: true },
+      { label: "FAQs", href: "/learn" },
     ],
   },
 ];
@@ -54,8 +54,9 @@ export function Footer() {
           <div>
             <Logo dark />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/55">
-              The official governing body for pickleball in Rajasthan — building
-              the sport through community, competition, development and excellence.
+              The official governing body for pickleball in Rajasthan — advancing
+              the sport through grassroots development, vibrant communities,
+              competitive pathways, and a culture of excellence.
             </p>
             <div className="mt-8 flex gap-3">
               {socials.map((s) => (
@@ -111,8 +112,8 @@ export function Footer() {
             rights reserved.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/about" className="hover:text-white/80">Privacy</Link>
-            <Link href="/about" className="hover:text-white/80">Terms</Link>
+            <Link href="/privacy" className="hover:text-white/80">Privacy</Link>
+            <Link href="/terms" className="hover:text-white/80">Terms</Link>
             <a href={`mailto:${siteConfig.email}`} className="hover:text-white/80">
               {siteConfig.email}
             </a>

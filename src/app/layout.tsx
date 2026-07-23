@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Caveat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { BackToTop } from "@/components/motion/back-to-top";
 import { Preloader } from "@/components/motion/preloader";
@@ -94,7 +93,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <Preloader />
-        <SmoothScroll />
         <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>

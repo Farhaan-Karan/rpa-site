@@ -8,7 +8,7 @@ export type Stat = { label: string; value: number; suffix?: string };
 
 export const liveStats: Stat[] = [
   { label: "Registered Players", value: 800, suffix: "+" },
-  { label: "Affiliated Clubs", value: 100, suffix: "+" },
+  { label: "Pickle Clubs", value: 100, suffix: "+" },
   { label: "District Bodies", value: 6 },
   { label: "Cities Playing", value: 9 },
 ];
@@ -130,7 +130,7 @@ export const rankings: Record<"Men" | "Women" | "Junior" | "Doubles", RankingRow
   ],
 };
 
-export type Leader = { name: string; role: string; photo: string; note: string };
+export type Leader = { name: string; role: string; photo: string; note: string; instagram?: string };
 
 export const leadership: Leader[] = [
   { name: "Bhavya Bishnoi", role: "President", photo: "/images/leader-bhavya.jpg", note: "Leading RPA's mission to grow pickleball in every district of Rajasthan and build a clear pathway from grassroots to the national stage." },
@@ -183,20 +183,40 @@ export type NewsItem = {
   slug: string;
   title: string;
   category: "News" | "Feature" | "Development" | "Tournament";
-  date: string;
+  source: string;
+  url: string;
   excerpt: string;
   image: string;
-  readTime: number;
 };
 
 export const news: NewsItem[] = [
-  { slug: "indian-pickleball-boom", title: "India's Pickleball Boom: The Fastest-Growing Sport in the Country", category: "News", date: "2026-06-20", excerpt: "From a handful of courts to thousands nationwide — how pickleball became India's breakout sport, and Rajasthan's place in the surge.", image: "/images/community.jpg", readTime: 4 },
-  { slug: "pickle-up-4-udaipur", title: "Pickle Up 4.0 Brings PWR 100 Points to Udaipur", category: "Tournament", date: "2026-05-10", excerpt: "Sports Fusion hosts Rajasthan's PWR-sanctioned showcase this May with a ₹1,00,000 prize pool.", image: "/images/arena.jpg", readTime: 3 },
-  { slug: "school-programme-launch", title: "RPA Launches Pickleball in 50 Rajasthan Schools", category: "Development", date: "2026-06-08", excerpt: "A landmark grassroots push brings the sport to thousands of students across six cities.", image: "/images/community.jpg", readTime: 5 },
-  { slug: "mehta-sharma-national-call", title: "Mehta and Sharma Earn National Camp Call-Ups", category: "News", date: "2026-05-29", excerpt: "Two of Rajasthan's brightest stars are selected for the India high-performance camp.", image: "/images/player-1.jpg", readTime: 3 },
-  { slug: "junior-pathway-feature", title: "Inside the Junior Pathway Powering Rajasthan's Future", category: "Feature", date: "2026-05-20", excerpt: "How the state's academy network is building champions from under-12 up.", image: "/images/junior.jpg", readTime: 6 },
-  { slug: "udaipur-hosts-lake-city-open", title: "Udaipur to Host the Lake City Open This August", category: "Tournament", date: "2026-05-12", excerpt: "The lakeside classic returns with an expanded mixed-doubles division.", image: "/images/action.jpg", readTime: 3 },
-  { slug: "coach-certification-drive", title: "200 Coaches Certified in RPA's Largest-Ever Drive", category: "Development", date: "2026-04-30", excerpt: "A statewide certification programme professionalises grassroots coaching.", image: "/images/community.jpg", readTime: 4 },
+  {
+    slug: "world-cup-2026-squads",
+    title: "Indian Senior Squads Announced for the Pickleball World Cup 2026",
+    category: "News",
+    source: "Times Now",
+    url: "https://www.timesnownews.com/sports/pickleball/indian-senior-squads-announced-for-pickleball-world-cup-2026-article-155147998",
+    excerpt: "India names its senior squads for the Pickleball World Cup 2026 as the national programme steps up.",
+    image: "/images/arena.jpg",
+  },
+  {
+    slug: "bhavya-bishnoi-desert-state",
+    title: "Bhavya Bishnoi Is Driving Pickleball's Growth in the Desert State",
+    category: "Feature",
+    source: "Times Now",
+    url: "https://www.timesnownews.com/sports/pickleball/leader-in-haryana-rajasthan-at-heart-bhavya-bishnoi-is-driving-pickleballs-growth-in-the-desert-state-article-153137207",
+    excerpt: "A leader in Haryana with Rajasthan at heart — how RPA President Bhavya Bishnoi is powering the sport's rise.",
+    image: "/images/leader-bhavya.jpg",
+  },
+  {
+    slug: "ipl-rajasthan-moment",
+    title: "Indian Pickleball League: Rajasthan's Pickleball Moment Has Arrived",
+    category: "News",
+    source: "Times Now",
+    url: "https://www.timesnownews.com/sports/pickleball/indian-pickleball-league-where-culture-meets-competition-rajasthans-pickleball-moment-steered-by-bhavya-bishnoi-has-arrived-article-153327559",
+    excerpt: "Where culture meets competition — Rajasthan's pickleball moment, steered by Bhavya Bishnoi, has arrived.",
+    image: "/images/nihal-home.png",
+  },
 ];
 
 export type Sponsor = { name: string; tier: "Title" | "Official" | "Partner" };
@@ -267,11 +287,11 @@ export type FAQ = { q: string; a: string };
 
 export const faqs: FAQ[] = [
   { q: "What is pickleball?", a: "Pickleball is a paddle sport that blends tennis, badminton and table tennis. It's played on a badminton-sized court with a perforated plastic ball and solid paddles — easy to learn, hard to put down, and great for all ages." },
-  { q: "How do I start playing in Rajasthan?", a: "Find one of our 105 affiliated venues near you on the Community page, register as an RPA member, and just show up — most clubs run beginner sessions and open play where paddles and balls are provided." },
+  { q: "How do I start playing in Rajasthan?", a: "Browse the 100+ venues mapped on our Clubs page, register as an RPA member, and just show up — most clubs run beginner sessions and open play where paddles and balls are provided." },
   { q: "Do I need experience or my own equipment?", a: "Not at all. Most venues lend paddles and balls for your first few sessions. Comfortable shoes and water are all you really need to begin." },
   { q: "How do I become an RPA member?", a: "Register through the official IPA portal or our membership form on the Join Us page. Membership gives you a player ID, tournament eligibility and ranking points." },
   { q: "How are tournaments sanctioned?", a: "RPA-affiliated events are sanctioned under the Pickleball World Rankings (PWR) system through the Indian Pickleball Association, so your results count towards national rankings." },
-  { q: "Can my club or academy get affiliated?", a: "Yes. Any venue running pickleball in Rajasthan can apply for affiliation via the Club/Academy registration form on the Join Us page to join our network of 105 venues." },
+  { q: "Can my club or academy get affiliated?", a: "Yes. Any venue running pickleball in Rajasthan can apply for affiliation via the Club/Academy registration form on the Join Us page to join our network of 100+ venues." },
   { q: "Is pickleball good for kids and seniors?", a: "Absolutely — it's one of the most age-inclusive sports there is. The smaller court and slower ball make it gentle on the body while still being genuinely competitive." },
   { q: "What are the basic rules?", a: "Serve underhand crosscourt, let the ball bounce once on each side before volleying (the 'double-bounce rule'), stay out of the 7-foot 'kitchen' when volleying, and play first to 11, win by 2. Full rulebook is linked above." },
 ];

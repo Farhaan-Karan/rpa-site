@@ -2,14 +2,15 @@ export const siteConfig = {
   name: "Rajasthan Pickleball Association",
   short: "RPA",
   url: "https://rajasthanpickleball.in",
-  email: "rajasthanpickleball@gmail.com",
+  email: "connect@rajasthanpickleball.com",
   phone: "+91 98290 66669",
   tagline: "The Home of Pickleball in Rajasthan",
   social: {
     instagram: "https://www.instagram.com/rajasthanpickleballassociation/",
-    youtube: "https://www.youtube.com/@indianpickleball",
   },
   instagramHandle: "@rajasthanpickleballassociation",
+  ipaInstagram: "https://www.instagram.com/indianpickleballassociation/",
+  ipaInstagramHandle: "@indianpickleballassociation",
 };
 
 /** Official IPA / RPA links used across the site. */

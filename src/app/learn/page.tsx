@@ -37,7 +37,7 @@ export default function LearnPage() {
             New here? <span className="text-brand-gradient">Start playing.</span>
           </>
         }
-        intro="Pickleball takes five minutes to learn and a lifetime to master. Here's everything you need to get on court with confidence."
+        intro="Easy to learn, endlessly rewarding, and always exciting — pickleball takes just minutes to begin and a lifetime to master. Discover everything you need to step onto the court with confidence."
         image="/images/junior.jpg"
       />
 

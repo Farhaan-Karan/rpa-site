@@ -22,11 +22,11 @@ const subs = [
   { href: "#tournaments", label: "Tournaments", icon: Trophy },
 ];
 
-const pulse = [
+const pulse: { label: string; value?: number; suffix?: string; text?: string }[] = [
   { label: "Registered Players", value: 800, suffix: "+" },
-  { label: "Affiliated Clubs", value: 100, suffix: "+" },
-  { label: "Affiliated Venues", value: 105 },
+  { label: "Mapped Clubs", value: 100, suffix: "+" },
   { label: "District Bodies", value: 6 },
+  { label: "Momentum", text: "∞" },
 ];
 
 export default function CommunityPage() {
@@ -36,10 +36,10 @@ export default function CommunityPage() {
         kicker="The Community"
         title={
           <>
-            Our <span className="text-gold">Communities.</span>
+            A Growing <span className="text-gold">Footprint.</span>
           </>
         }
-        intro="800+ players, 100+ affiliated clubs and a growing tournament circuit across six districts — this is the heart of Rajasthan pickleball."
+        intro="With 800+ players, 100+ mapped clubs, and a growing tournament circuit across six districts, our community is the driving force behind pickleball's rise in Rajasthan."
         image="/images/nihal-districts.png"
       />
 
@@ -71,11 +71,12 @@ export default function CommunityPage() {
                   The Community
                 </span>
                 <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight sm:text-4xl">
-                  A movement, <span className="text-gold-bright">by the numbers.</span>
+                  A Movement, <span className="text-gold-bright">Measured in Momentum.</span>
                 </h2>
                 <p className="mt-3 max-w-sm text-white/70">
-                  Every one of these numbers is a player, a court or a community —
-                  and there&apos;s room for you.
+                  Behind every number is a player, a court, a club, or a community
+                  helping shape the future of pickleball in Rajasthan — and there is a
+                  place for you in what comes next.
                 </p>
                 <ButtonLink
                   href={links.playerForm}
@@ -95,7 +96,7 @@ export default function CommunityPage() {
                     className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-sm transition-colors hover:border-gold/40"
                   >
                     <div className="font-display text-4xl font-extrabold text-gold-bright sm:text-5xl">
-                      <Counter to={s.value} suffix={s.suffix} />
+                      {s.text ? s.text : <Counter to={s.value!} suffix={s.suffix} />}
                     </div>
                     <div className="mt-1.5 text-[0.7rem] font-medium uppercase tracking-wider text-white/60">
                       {s.label}
@@ -151,8 +152,8 @@ export default function CommunityPage() {
             intro="RPA events are sanctioned under the Pickleball World Rankings (PWR) system through the Indian Pickleball Association."
           />
           <Reveal>
-            <ButtonLink href={links.registration} target="_blank" rel="noopener noreferrer" variant="gold" arrow>
-              Register for events
+            <ButtonLink href={links.tournamentForm} target="_blank" rel="noopener noreferrer" variant="gold" arrow>
+              Register your Tournament
             </ButtonLink>
           </Reveal>
         </div>

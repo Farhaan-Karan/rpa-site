@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Building2, UserPlus } from "lucide-react";
+import { ArrowUpRight, MapPin, UserPlus, ShieldCheck } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { DistrictsBar } from "@/components/sections/districts-bar";
 import { NewsPreview } from "@/components/sections/news-preview";
@@ -10,24 +10,26 @@ import { links, siteConfig } from "@/lib/site";
 
 const tabs = [
   {
-    href: "/community",
-    label: "Clubs",
-    title: "Find a club",
-    text: "Browse 100+ affiliated clubs and academies across six districts.",
-    icon: Building2,
+    href: "/community#clubs",
+    label: "Find a Court",
+    title: "Find a court",
+    text: "Browse 100+ pickle clubs and academies mapped across six districts.",
+    icon: MapPin,
     external: false,
     cls: "bg-teal text-paper",
     chip: "bg-paper/15",
+    cta: "Open",
   },
   {
     href: "/join",
     label: "Become a Member",
     title: "Join RPA",
-    text: "Get your official player ID, ranking points and tournament access.",
+    text: "Get your official IPA player ID, ranking points and tournament access.",
     icon: UserPlus,
     external: false,
     cls: "bg-gold text-paper",
     chip: "bg-paper/15",
+    cta: "Open",
   },
   {
     href: links.instagram,
@@ -38,6 +40,18 @@ const tabs = [
     external: true,
     cls: "bg-night text-paper",
     chip: "bg-paper/10",
+    cta: "Follow",
+  },
+  {
+    href: links.ipa,
+    label: "Affiliated to",
+    title: "IPA",
+    text: "The Indian Pickleball Association — our national governing body.",
+    icon: ShieldCheck,
+    external: true,
+    cls: "bg-rust text-paper",
+    chip: "bg-paper/15",
+    cta: "Visit",
   },
 ];
 
@@ -46,9 +60,9 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Three tabs */}
+      {/* Quick-access boxes */}
       <section className="edge bg-cream pb-8 pt-4">
-        <div className="mx-auto grid max-w-[1400px] gap-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-[1400px] gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {tabs.map((t, i) => {
             const Card = (
               <div
@@ -65,7 +79,7 @@ export default function Home() {
                   <p className="mt-2.5 text-[0.95rem] leading-relaxed opacity-85">{t.text}</p>
                 </div>
                 <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold">
-                  {t.external ? "Follow" : "Open"}
+                  {t.cta}
                   <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </div>
