@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, MapPin, UserPlus, ShieldCheck } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { DistrictsBar } from "@/components/sections/districts-bar";
+import { Campaign } from "@/components/sections/campaign";
 import { NewsPreview } from "@/components/sections/news-preview";
 import { MembershipCTA } from "@/components/sections/cta";
 import { Reveal } from "@/components/motion/reveal";
@@ -102,6 +103,7 @@ export default function Home() {
       </section>
 
       <DistrictsBar />
+      <Campaign />
       <NewsPreview />
       <MembershipCTA />
     </>
