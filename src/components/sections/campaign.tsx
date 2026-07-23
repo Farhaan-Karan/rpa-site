@@ -12,6 +12,7 @@ import { Reveal } from "@/components/motion/reveal";
 const posters = [
   { src: "/images/poster-legacy.png", alt: "RPA Legacy campaign", ratio: "aspect-[4/5]" },
   { src: "/images/poster-matchday.png", alt: "RPA Match Day", ratio: "aspect-[4/5]" },
+  { src: "/images/poster-playbold.png", alt: "Play Bold. Live Active.", ratio: "aspect-[16/9]" },
   { src: "/images/poster-vijeta.png", alt: "Vijeta RPA", ratio: "aspect-[4/5]" },
   { src: "/images/poster-champpoint.png", alt: "Championship Point", ratio: "aspect-[9/16]" },
   { src: "/images/poster-splatter.png", alt: "RPA x Chinkara", ratio: "aspect-[2/3]" },
