@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Counter } from "@/components/motion/counter";
 import { VenueDirectory } from "@/components/sections/venue-directory";
 import { IndiaMap } from "@/components/sections/india-map";
+import { PosterFeature, PosterBanner } from "@/components/sections/poster-feature";
 import { ButtonLink } from "@/components/ui/button";
 import { sanctionedTournaments, pwrTiers } from "@/lib/data";
 import { links } from "@/lib/site";
@@ -109,6 +110,13 @@ export default function CommunityPage() {
         </Reveal>
       </Section>
 
+      {/* Winning culture banner */}
+      <PosterBanner
+        poster="/images/poster-winning.png"
+        alt="RPA Winning Culture — The Rise of Rajasthan Pickleball"
+        eyebrow="One Winning Culture"
+      />
+
       {/* Clubs & Academies */}
       <Section id="clubs" className="bg-mist">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -138,6 +146,19 @@ export default function CommunityPage() {
           <VenueDirectory />
         </div>
       </Section>
+
+      {/* Match Day poster feature */}
+      <PosterFeature
+        poster="/images/poster-matchday.png"
+        alt="RPA Match Day — Championship Series"
+        tone="night"
+        reverse
+        kicker="Match Day"
+        title="Where the season comes"
+        accent="alive."
+        body="Sanctioned brackets, real ranking points and packed courts. From district opens to marquee events, every match day is a chance to test your game against the best in Rajasthan."
+        cta={{ href: links.playerForm, label: "Register as a player", external: true }}
+      />
 
       {/* Tournaments */}
       <Section id="tournaments">

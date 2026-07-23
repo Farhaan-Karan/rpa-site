@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { districts, districtBodies } from "@/lib/clubs";
 import { PresidentMessage } from "@/components/sections/president-message";
+import { PosterFeature } from "@/components/sections/poster-feature";
 import { Counter } from "@/components/motion/counter";
 import { Instagram } from "@/components/ui/icons";
 import { leadership } from "@/lib/data";
@@ -60,6 +61,17 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
+      {/* Legacy poster feature */}
+      <PosterFeature
+        poster="/images/poster-legacy.png"
+        alt="RPA Legacy — building champions, building Rajasthan"
+        kicker="The Legacy"
+        title="He gave Rajasthan a game."
+        accent="We're building the movement."
+        body="From the very first paddle to a community spanning six districts, RPA carries one belief forward — that pickleball belongs to everyone. What began as a game is now a movement, taking root in every corner of the state."
+        cta={{ href: "/join", label: "Become a member" }}
+      />
 
       {/* Official affiliation — IPA */}
       <section className="edge py-6">
@@ -161,6 +173,19 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
+      {/* Born to Lead poster feature */}
+      <PosterFeature
+        poster="/images/poster-bornlead.png"
+        alt="RPA — Born to Lead"
+        ratio="aspect-[2/3]"
+        tone="night"
+        reverse
+        kicker="The People"
+        title="Born to"
+        accent="lead."
+        body="Behind RPA is a team of players, coordinators and volunteers who show up for the sport every single day — building courts, running leagues and opening doors so the next generation has somewhere to play."
+      />
 
       {/* Leadership */}
       <Section className="bg-mist">

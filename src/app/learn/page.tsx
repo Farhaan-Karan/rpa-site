@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { AskRpa } from "@/components/sections/ask-rpa";
+import { PosterBanner } from "@/components/sections/poster-feature";
 import { links } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -85,6 +86,13 @@ export default function LearnPage() {
           </div>
         </Reveal>
       </Section>
+
+      {/* Play Bold banner */}
+      <PosterBanner
+        poster="/images/poster-playbold.png"
+        alt="RPA — Play Bold. Live Active."
+        eyebrow="Step Onto The Court"
+      />
 
       {/* Videos */}
       <Section className="bg-mist">

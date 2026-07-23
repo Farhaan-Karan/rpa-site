@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { UserPlus, Building2, Trophy, ArrowUpRight, Check } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Section } from "@/components/ui/primitives";
+import { PosterFeature } from "@/components/sections/poster-feature";
 import { Reveal } from "@/components/motion/reveal";
 import { Instagram } from "@/components/ui/icons";
 import { links } from "@/lib/site";
@@ -90,6 +91,20 @@ export default function JoinPage() {
         }
         intro="Three ways to get involved — pick the one that fits and you'll be set up in a few minutes."
         image="/images/action.jpg"
+      />
+
+      {/* Represent poster feature */}
+      <PosterFeature
+        poster="/images/poster-represent.png"
+        alt="RPA — Play. Compete. Represent."
+        ratio="aspect-[9/16]"
+        maxW="max-w-[360px]"
+        tone="night"
+        kicker="Pull On The Jersey"
+        title="Play. Compete."
+        accent="Represent."
+        body="Your official IPA player ID is the ticket — to sanctioned tournaments, national ranking points, and the chance to wear Rajasthan's colours on the biggest stages. This is where it starts."
+        cta={{ href: links.registration, label: "Register on IPA portal", external: true }}
       />
 
       <Section>
