@@ -23,6 +23,11 @@ Source JPGs are WhatsApp-compressed (~1024px tall) — fine for web (Next optimi
 
 **Posters are spread site-wide (not just the home wall)** via a reusable `src/components/sections/poster-feature.tsx` exporting **`PosterFeature`** (framed poster + editorial copy, 2-col, reversible, `tone` cream/night, optional `cta`, `ratio`/`maxW` props) and **`PosterBanner`** (full-width landscape poster, optional `eyebrow`). Placements: **Home** = Campaign (chinkara hero + marquee wall); **About** = `legacy` (cream, after Vision) + `bornlead` (night, before Leadership); **Community** = `winning` banner (after pulse) + `matchday` (night, before Tournaments); **Learn** = `playbold` banner (after Basics); **Join** = `represent` (night, after header). All verified live 2026-07-23.
 
+## Image quality rules (audited 2026-07-26)
+Every `<Image fill>` **must** declare a `sizes` that matches its real rendered width — three had none (news cards, president photo, all `PageHeader`s) and fell back to `100vw`, and the campaign marquee used a flat `sizes="360px"` while its 16/9 cards render **604px** wide (fixed height 340px × ratio), so they were served 750px into a 1208px slot and looked soft. Posters/news/president now render at `quality` 90–95 (allowlisted in `next.config.ts`). Verified: no image on `/` or `/about` is served below 2× its display box.
+⚠️ **`leader-bhavya.jpg` is only 683×1024** — the President card renders 420px wide, so retina needs 840px. It is the one image on the site that physically cannot be sharp; **ask Bhavya for a higher-res headshot**. (kanika 1140×1380 and akshay 1076×1462 are fine.)
+Long unbroken strings need `[overflow-wrap:anywhere]`: `@rajasthanpickleballassociation` needs 366px at 24px extrabold but the home quick-box gives it 174px, and it painted straight out of the card until this was added (also on the Join page button).
+
 ## Stack
 Next.js 16.2.9 (App Router, Turbopack), TypeScript, Tailwind v4 (tokens in `src/app/globals.css` `@theme`), framer-motion, Leaflet (map), lucide-react **v1.21 fork (NO brand icons — Instagram glyph is in `src/components/ui/icons.tsx`)**. Supabase scaffolded but unused. **Lenis was removed** — native scroll everywhere (fixed repeated scroll-trap complaints); CSS `scroll-behavior:smooth` + `[id]{scroll-margin-top:96px}` handle anchors; `BackToTop` uses `window.scrollTo`.
 
