@@ -18,7 +18,7 @@ export function LogoMark({
       )}
     >
       <Image
-        src="/images/nihal-logo.jpeg"
+        src="/images/rpa-logo.png"
         alt="Rajasthan Pickleball Association"
         fill
         sizes={sizes}
