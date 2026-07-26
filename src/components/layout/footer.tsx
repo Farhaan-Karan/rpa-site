@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Logo } from "./logo";
 import { siteConfig, links } from "@/lib/site";
 
 function IconInstagram(props: React.SVGProps<SVGSVGElement>) {
@@ -52,7 +52,22 @@ export function Footer() {
       <div className="edge mx-auto max-w-[1400px] py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <Logo dark />
+            {/* official RPA wordmark lockup (from the vector logo master) */}
+            <Link
+              href="/"
+              aria-label="Rajasthan Pickleball Association — Home"
+              className="inline-block overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.02]"
+            >
+              <Image
+                src="/images/rpa-wordmark.png"
+                alt="Rajasthan Pickleball Association"
+                width={1600}
+                height={724}
+                sizes="300px"
+                quality={95}
+                className="h-auto w-[280px]"
+              />
+            </Link>
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/55">
               The official governing body for pickleball in Rajasthan — advancing
               the sport through grassroots development, vibrant communities,
