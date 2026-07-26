@@ -1,7 +1,15 @@
 export const siteConfig = {
   name: "Rajasthan Pickleball Association",
   short: "RPA",
-  url: "https://rajasthanpickleball.in",
+  /**
+   * Canonical origin. Drives metadataBase (og:image / og:url), sitemap.xml
+   * and robots.txt — so it MUST be a host that actually serves the site, or
+   * social previews and search indexing silently break.
+   * `rajasthanpickleball.in` had no DNS, so this points at the live
+   * deployment until a custom domain is attached in Vercel. When that
+   * happens, set NEXT_PUBLIC_SITE_URL (or update the fallback below).
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rpa-site.vercel.app",
   email: "connect@rajasthanpickleball.com",
   phone: "+91 98290 66669",
   tagline: "The Home of Pickleball in Rajasthan",
