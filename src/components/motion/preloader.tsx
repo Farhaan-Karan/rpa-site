@@ -58,7 +58,10 @@ export function Preloader() {
               animate={{ scale: 1, rotate: 0, opacity: 1 }}
               transition={spring}
             >
-              <LogoMark className="size-28 drop-shadow-2xl sm:size-36" />
+              <LogoMark
+                className="size-28 drop-shadow-2xl sm:size-36"
+                sizes="(max-width: 640px) 112px, 144px"
+              />
             </motion.div>
 
             <div className="mt-7 flex overflow-hidden">

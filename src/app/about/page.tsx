@@ -23,7 +23,7 @@ const whyJoin = [
   { icon: IdCard, title: "Official Player ID", text: "Your recognised RPA / IPA identity to compete and represent Rajasthan." },
   { icon: TrendingUp, title: "Ranking Points", text: "Earn national PWR points at sanctioned tournaments across the state." },
   { icon: MapPinned, title: "100+ Venues", text: "Play at any of the pickle clubs and academies mapped across six districts." },
-  { icon: HeartHandshake, title: "Real Community", text: "Leagues, open play and events that welcome every age and level." },
+  { icon: HeartHandshake, title: "Real Community", text: "Leagues, open play, and events that welcome every age and level." },
 ];
 
 export default function AboutPage() {
@@ -67,8 +67,8 @@ export default function AboutPage() {
         poster="/images/poster-legacy.png"
         alt="RPA Legacy — building champions, building Rajasthan"
         kicker="The Legacy"
-        title="He gave Rajasthan a game."
-        accent="We're building the movement."
+        title="Join. Play."
+        accent="Represent."
         body="From the very first paddle to a community spanning six districts, RPA carries one belief forward — that pickleball belongs to everyone. What began as a game is now a movement, taking root in every corner of the state."
         cta={{ href: "/join", label: "Become a member" }}
       />
@@ -149,10 +149,12 @@ export default function AboutPage() {
             kicker="Venues Across Rajasthan"
             title={
               <>
-                105 venues in <span className="text-brand-gradient">6 districts.</span>
+                From the Pink City to the Lake City,{" "}
+                <span className="text-brand-gradient">
+                  pickleball courts are opening across the state.
+                </span>
               </>
             }
-            intro="From the Pink City to the Lake City, affiliated courts are opening across the state."
           />
           <Reveal>
             <ButtonLink href="/community" variant="outline" arrow>
@@ -184,7 +186,7 @@ export default function AboutPage() {
         kicker="The People"
         title="Born to"
         accent="lead."
-        body="Behind RPA is a team of players, coordinators and volunteers who show up for the sport every single day — building courts, running leagues and opening doors so the next generation has somewhere to play."
+        body="Behind RPA is a team of players, coordinators, and volunteers who show up for the sport every single day — building courts, running leagues and opening doors so the next generation has somewhere to play."
       />
 
       {/* Leadership */}

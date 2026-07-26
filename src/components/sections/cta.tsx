@@ -8,7 +8,7 @@ import { Instagram } from "@/components/ui/icons";
 
 const steps = [
   { n: "01", t: "Register", d: "Sign up on the official IPA portal or our membership form — it takes two minutes." },
-  { n: "02", t: "Get your Player ID", d: "Receive your official IPA player ID, tournament eligibility and ranking points." },
+  { n: "02", t: "Get your Player ID", d: "Receive your official IPA player ID, tournament eligibility, and ranking points." },
   { n: "03", t: "Find your court", d: "Pick from more than 100 venues, show up, and play. Beginners always welcome." },
 ];
 

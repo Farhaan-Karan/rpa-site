@@ -2,7 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({
+  className,
+  sizes = "48px",
+}: {
+  className?: string;
+  /** must match the rendered box, else Next serves an undersized file and the mark looks pixelated */
+  sizes?: string;
+}) {
   return (
     <span
       className={cn(
@@ -14,7 +21,8 @@ export function LogoMark({ className }: { className?: string }) {
         src="/images/nihal-logo.jpeg"
         alt="Rajasthan Pickleball Association"
         fill
-        sizes="40px"
+        sizes={sizes}
+        quality={95}
         className="object-cover"
       />
     </span>

@@ -51,9 +51,9 @@ export function Campaign() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70">
-              Desert speed. Desert spirit. The Chinkara — Rajasthan&apos;s swift,
-              graceful gazelle — is the heartbeat of RPA: agile, fearless and built
-              for the game. One state, one game, one Rajasthan.
+              Desert speed. Desert spirit. Meet the Chinkara — the official mascot
+              of the Rajasthan Pickleball Association. A symbol of speed, grace,
+              endurance, and the fearless spirit of the Thar desert.
             </p>
           </Reveal>
           <Reveal delay={3}>

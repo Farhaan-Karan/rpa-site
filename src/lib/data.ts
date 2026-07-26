@@ -7,10 +7,10 @@
 export type Stat = { label: string; value: number; suffix?: string };
 
 export const liveStats: Stat[] = [
-  { label: "Registered Players", value: 800, suffix: "+" },
-  { label: "Pickle Clubs", value: 100, suffix: "+" },
-  { label: "District Bodies", value: 6 },
-  { label: "Cities Playing", value: 9 },
+  { label: "Players", value: 800, suffix: "+" },
+  { label: "Clubs", value: 100, suffix: "+" },
+  { label: "Districts", value: 6 },
+  { label: "Cities", value: 9 },
 ];
 
 export type City = {
@@ -133,9 +133,9 @@ export const rankings: Record<"Men" | "Women" | "Junior" | "Doubles", RankingRow
 export type Leader = { name: string; role: string; photo: string; note: string; instagram?: string };
 
 export const leadership: Leader[] = [
-  { name: "Bhavya Bishnoi", role: "President", photo: "/images/leader-bhavya.jpg", note: "Leading RPA's mission to grow pickleball in every district of Rajasthan and build a clear pathway from grassroots to the national stage." },
-  { name: "Kanika Choudhary", role: "Vice President", photo: "/images/leader-kanika.jpg", note: "Driving RPA's community, competition and development programmes across the state." },
-  { name: "Akshay Singhi", role: "General Secretary", photo: "/images/leader-akshay.jpg", note: "Overseeing operations, club affiliations and the association's day-to-day governance." },
+  { name: "Bhavya Bishnoi", role: "President", photo: "/images/leader-bhavya.jpg", instagram: "https://www.instagram.com/bbhavyabishnoi/", note: "Leading RPA's mission to grow pickleball in every district of Rajasthan and build a clear pathway from grassroots to the national stage." },
+  { name: "Kanika Choudhary", role: "Vice President", photo: "/images/leader-kanika.jpg", instagram: "https://www.instagram.com/kanikachoudhary/", note: "Driving RPA's community, competition and development programmes across the state." },
+  { name: "Akshay Singhi", role: "General Secretary", photo: "/images/leader-akshay.jpg", instagram: "https://www.instagram.com/akshay.singhi/", note: "Overseeing operations, club affiliations and the association's day-to-day governance." },
 ];
 
 export type Club = {
@@ -191,6 +191,15 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
+    slug: "bhavya-bishnoi-pickleball-capital",
+    title: "Medals Alone Mean Nothing: Bhavya Bishnoi's Bold Vision to Make Rajasthan India's Pickleball Capital",
+    category: "Feature",
+    source: "Times Now · Exclusive",
+    url: "https://www.timesnownews.com/sports/pickleball/medals-alone-mean-nothing-bhavya-bishnois-bold-vision-to-make-rajasthan-indias-pickleball-capital-exclusive-article-155155821",
+    excerpt: "An exclusive with the RPA President on why medals alone mean nothing — and his plan to make Rajasthan India's pickleball capital.",
+    image: "/images/hero-real.jpg",
+  },
+  {
     slug: "world-cup-2026-squads",
     title: "Indian Senior Squads Announced for the Pickleball World Cup 2026",
     category: "News",
@@ -215,7 +224,7 @@ export const news: NewsItem[] = [
     source: "Times Now",
     url: "https://www.timesnownews.com/sports/pickleball/indian-pickleball-league-where-culture-meets-competition-rajasthans-pickleball-moment-steered-by-bhavya-bishnoi-has-arrived-article-153327559",
     excerpt: "Where culture meets competition — Rajasthan's pickleball moment, steered by Bhavya Bishnoi, has arrived.",
-    image: "/images/nihal-home.png",
+    image: "/images/nihal-tournaments.png",
   },
 ];
 

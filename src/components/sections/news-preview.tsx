@@ -17,7 +17,7 @@ export function NewsPreview() {
         intro="Coverage of Rajasthan pickleball and the movement driving it forward."
       />
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {news.map((n, i) => (
           <Reveal key={n.slug} delay={i}>
             <a

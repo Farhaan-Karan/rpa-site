@@ -19,7 +19,7 @@ export default function TermsPage() {
           </>
         }
         intro="The terms that govern the use of this website."
-        image="/images/arena.jpg"
+        image="/images/hero.jpg"
       />
       <Section>
         <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-ink-soft">
