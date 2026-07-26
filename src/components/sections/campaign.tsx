@@ -11,13 +11,16 @@ import { Reveal } from "@/components/motion/reveal";
 
 // NOTE: poster-legacy is deliberately absent — it headlines the "Join. Play.
 // Represent." feature on /about and shouldn't be repeated here.
+// `sizes` must track each card's real rendered width (height is fixed at
+// 340px, so width = 340 * ratio) — a single flat value under-serves the
+// wide 16/9 posters and they render soft.
 const posters = [
-  { src: "/images/poster-matchday.png", alt: "RPA Match Day", ratio: "aspect-[4/5]" },
-  { src: "/images/poster-playbold.png", alt: "Play Bold. Live Active.", ratio: "aspect-[16/9]" },
-  { src: "/images/poster-vijeta.png", alt: "Vijeta RPA", ratio: "aspect-[4/5]" },
-  { src: "/images/poster-champpoint.png", alt: "Championship Point", ratio: "aspect-[9/16]" },
-  { src: "/images/poster-splatter.png", alt: "RPA x Chinkara", ratio: "aspect-[2/3]" },
-  { src: "/images/poster-winning.png", alt: "RPA Winning Culture", ratio: "aspect-[16/9]" },
+  { src: "/images/poster-matchday.png", alt: "RPA Match Day", ratio: "aspect-[4/5]", sizes: "280px" },
+  { src: "/images/poster-playbold.png", alt: "Play Bold. Live Active.", ratio: "aspect-[16/9]", sizes: "620px" },
+  { src: "/images/poster-vijeta.png", alt: "Vijeta RPA", ratio: "aspect-[4/5]", sizes: "280px" },
+  { src: "/images/poster-champpoint.png", alt: "Championship Point", ratio: "aspect-[9/16]", sizes: "200px" },
+  { src: "/images/poster-splatter.png", alt: "RPA x Chinkara", ratio: "aspect-[2/3]", sizes: "240px" },
+  { src: "/images/poster-winning.png", alt: "RPA Winning Culture", ratio: "aspect-[16/9]", sizes: "620px" },
 ];
 
 export function Campaign() {
@@ -28,7 +31,7 @@ export function Campaign() {
           key={p.src}
           className={`relative h-[340px] shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/10 ${p.ratio}`}
         >
-          <Image src={p.src} alt={p.alt} fill sizes="360px" className="object-cover" />
+          <Image src={p.src} alt={p.alt} fill sizes={p.sizes} quality={90} className="object-cover" />
         </div>
       ))}
     </div>
@@ -76,6 +79,7 @@ export function Campaign() {
                 alt="RPA Chinkara — Desert Speed, Desert Spirit"
                 fill
                 sizes="(max-width:1024px) 100vw, 40vw"
+                quality={90}
                 className="object-cover"
               />
             </div>

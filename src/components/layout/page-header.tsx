@@ -50,7 +50,15 @@ export function PageHeader({
           <div className="relative">
             <div className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-gold/20 to-teal/20 blur-2xl" />
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-line bg-paper shadow-[0_28px_60px_-30px_rgba(17,33,39,0.35)]">
-              <Image src={image} alt="" fill className="object-cover" priority />
+              <Image
+                src={image}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 48vw"
+                quality={90}
+                className="object-cover"
+                priority
+              />
             </div>
             <Pickleball size={78} className="absolute -bottom-5 -left-5" />
           </div>

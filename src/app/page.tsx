@@ -76,8 +76,14 @@ export default function Home() {
                   <div className="mt-6 font-mono text-[0.68rem] uppercase tracking-[0.24em] opacity-75">
                     {t.label}
                   </div>
-                  <h3 className="mt-1.5 font-display text-2xl font-extrabold">{t.title}</h3>
-                  <p className="mt-2.5 text-[0.95rem] leading-relaxed opacity-85">{t.text}</p>
+                  {/* the Instagram handle is one long unbroken word — without
+                      overflow-wrap it escapes the card at narrow column widths */}
+                  <h3 className="mt-1.5 font-display text-2xl font-extrabold [overflow-wrap:anywhere]">
+                    {t.title}
+                  </h3>
+                  <p className="mt-2.5 text-[0.95rem] leading-relaxed opacity-85 [overflow-wrap:anywhere]">
+                    {t.text}
+                  </p>
                 </div>
                 <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold">
                   {t.cta}

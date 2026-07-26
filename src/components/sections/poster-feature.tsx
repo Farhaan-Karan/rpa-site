@@ -77,6 +77,7 @@ export function PosterFeature({
                 alt={alt}
                 fill
                 sizes="(max-width:1024px) 100vw, 440px"
+                quality={90}
                 className="object-cover"
               />
             </div>
@@ -184,6 +185,7 @@ export function PosterBanner({
                 alt={alt}
                 fill
                 sizes="(max-width:1100px) 100vw, 1100px"
+                quality={90}
                 className="object-cover"
               />
             </div>

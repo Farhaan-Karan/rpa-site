@@ -38,6 +38,8 @@ export function PresidentMessage() {
               src={president.photo}
               alt={`${president.name}, President`}
               fill
+              sizes="(max-width: 1024px) 90vw, 384px"
+              quality={95}
               className="object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-night/85 to-transparent" />

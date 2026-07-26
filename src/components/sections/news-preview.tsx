@@ -31,6 +31,8 @@ export function NewsPreview() {
                   src={n.image}
                   alt={n.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  quality={95}
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-paper/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-orange-deep backdrop-blur">

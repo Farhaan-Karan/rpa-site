@@ -161,9 +161,9 @@ export default function JoinPage() {
               href={links.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-paper transition-colors hover:bg-gold-deep"
+              className="inline-flex max-w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-center font-semibold text-paper transition-colors hover:bg-gold-deep [overflow-wrap:anywhere]"
             >
-              <Instagram className="size-4" /> @rajasthanpickleballassociation
+              <Instagram className="size-4 shrink-0" /> @rajasthanpickleballassociation
             </a>
           </div>
         </Reveal>

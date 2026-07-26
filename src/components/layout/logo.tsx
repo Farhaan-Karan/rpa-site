@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export function LogoMark({
   className,
-  sizes = "48px",
+  sizes = "64px",
 }: {
   className?: string;
   /** must match the rendered box, else Next serves an undersized file and the mark looks pixelated */
