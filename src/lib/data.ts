@@ -197,7 +197,7 @@ export const news: NewsItem[] = [
     source: "Times Now · Exclusive",
     url: "https://www.timesnownews.com/sports/pickleball/medals-alone-mean-nothing-bhavya-bishnois-bold-vision-to-make-rajasthan-indias-pickleball-capital-exclusive-article-155155821",
     excerpt: "An exclusive with the RPA President on why medals alone mean nothing — and his plan to make Rajasthan India's pickleball capital.",
-    image: "/images/hero-real.jpg",
+    image: "/images/news-medals.jpg",
   },
   {
     slug: "world-cup-2026-squads",
@@ -206,7 +206,7 @@ export const news: NewsItem[] = [
     source: "Times Now",
     url: "https://www.timesnownews.com/sports/pickleball/indian-senior-squads-announced-for-pickleball-world-cup-2026-article-155147998",
     excerpt: "India names its senior squads for the Pickleball World Cup 2026 as the national programme steps up.",
-    image: "/images/arena.jpg",
+    image: "/images/news-worldcup.jpg",
   },
   {
     slug: "bhavya-bishnoi-desert-state",
@@ -215,7 +215,7 @@ export const news: NewsItem[] = [
     source: "Times Now",
     url: "https://www.timesnownews.com/sports/pickleball/leader-in-haryana-rajasthan-at-heart-bhavya-bishnoi-is-driving-pickleballs-growth-in-the-desert-state-article-153137207",
     excerpt: "A leader in Haryana with Rajasthan at heart — how RPA President Bhavya Bishnoi is powering the sport's rise.",
-    image: "/images/leader-bhavya.jpg",
+    image: "/images/news-desertstate.jpg",
   },
   {
     slug: "ipl-rajasthan-moment",
@@ -224,7 +224,7 @@ export const news: NewsItem[] = [
     source: "Times Now",
     url: "https://www.timesnownews.com/sports/pickleball/indian-pickleball-league-where-culture-meets-competition-rajasthans-pickleball-moment-steered-by-bhavya-bishnoi-has-arrived-article-153327559",
     excerpt: "Where culture meets competition — Rajasthan's pickleball moment, steered by Bhavya Bishnoi, has arrived.",
-    image: "/images/nihal-tournaments.png",
+    image: "/images/news-ipl.jpg",
   },
 ];
 

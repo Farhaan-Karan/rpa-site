@@ -9,8 +9,9 @@ import { Reveal } from "@/components/motion/reveal";
  * NOTE: drop the poster files in with the exact names below (see HANDOFF.md).
  */
 
+// NOTE: poster-legacy is deliberately absent — it headlines the "Join. Play.
+// Represent." feature on /about and shouldn't be repeated here.
 const posters = [
-  { src: "/images/poster-legacy.png", alt: "RPA Legacy campaign", ratio: "aspect-[4/5]" },
   { src: "/images/poster-matchday.png", alt: "RPA Match Day", ratio: "aspect-[4/5]" },
   { src: "/images/poster-playbold.png", alt: "Play Bold. Live Active.", ratio: "aspect-[16/9]" },
   { src: "/images/poster-vijeta.png", alt: "Vijeta RPA", ratio: "aspect-[4/5]" },
@@ -45,15 +46,15 @@ export function Campaign() {
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-5 font-display text-5xl font-extrabold leading-[0.95] sm:text-7xl">
-              Meet the{" "}
-              <span className="text-gold-bright">Chinkara.</span>
+              Desert Speed.{" "}
+              <span className="text-gold-bright">Desert Spirit.</span>
             </h2>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70">
-              Desert speed. Desert spirit. Meet the Chinkara — the official mascot
-              of the Rajasthan Pickleball Association. A symbol of speed, grace,
-              endurance, and the fearless spirit of the Thar desert.
+              Meet the Chinkara — the official mascot of the Rajasthan Pickleball
+              Association. A symbol of speed, grace, endurance, and the fearless
+              spirit of the Thar desert.
             </p>
           </Reveal>
           <Reveal delay={3}>

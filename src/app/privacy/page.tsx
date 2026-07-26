@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           </>
         }
         intro="How we collect, use and protect your information."
-        image="/images/community.jpg"
+        image="/images/nihal-contact.png"
       />
       <Section>
         <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-ink-soft">
