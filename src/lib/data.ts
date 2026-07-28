@@ -130,11 +130,21 @@ export const rankings: Record<"Men" | "Women" | "Junior" | "Doubles", RankingRow
   ],
 };
 
-export type Leader = { name: string; role: string; photo: string; note: string; instagram?: string };
+export type Leader = {
+  name: string;
+  role: string;
+  /** empty string renders the initials fallback until a photo is supplied */
+  photo: string;
+  note: string;
+  instagram?: string;
+};
 
 export const leadership: Leader[] = [
   { name: "Bhavya Bishnoi", role: "President", photo: "/images/leader-bhavya.jpg", instagram: "https://www.instagram.com/bbhavyabishnoi/", note: "Leading RPA's mission to grow pickleball in every district of Rajasthan and build a clear pathway from grassroots to the national stage." },
   { name: "Kanika Choudhary", role: "Vice President", photo: "/images/leader-kanika.jpg", instagram: "https://www.instagram.com/kanikachoudhary/", note: "Driving RPA's community, competition and development programmes across the state." },
+  // photo pending — supply public/images/leader-chaitanya.jpg and set it here;
+  // an empty string renders the initials card rather than a broken image.
+  { name: "Chaitanya Raj Singh", role: "Vice President", photo: "", instagram: "https://www.instagram.com/crsjaisalmer/", note: "Championing the growth of pickleball across Rajasthan's heritage cities and desert districts." },
   { name: "Akshay Singhi", role: "General Secretary", photo: "/images/leader-akshay.jpg", instagram: "https://www.instagram.com/akshay.singhi/", note: "Overseeing operations, club affiliations and the association's day-to-day governance." },
 ];
 

@@ -201,63 +201,55 @@ export default function AboutPage() {
           }
           intro="The people driving pickleball forward across Rajasthan. Tap a photo to follow along."
         />
-        <div className="mt-16 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-end lg:gap-10">
+        {/* Bhavya first, then the rest — all cards the same size (his request). */}
+        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {leadership.map((l, i) => {
-            const isPres = i === 0;
-            const order = isPres
-              ? "order-first lg:order-2"
-              : i === 1
-                ? "lg:order-1"
-                : "lg:order-3";
+            const isPres = l.role === "President";
             return (
-              <Reveal
-                key={l.name}
-                delay={i}
-                className={`group relative w-full ${
-                  isPres ? "max-w-[420px] lg:w-[420px]" : "max-w-[340px] lg:w-[340px]"
-                } ${order}`}
-              >
-                {isPres && (
-                  <div className="pointer-events-none absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-gold/45 via-gold/20 to-teal/35 blur-2xl" />
-                )}
+              <Reveal key={l.name} delay={i} className="group relative w-full">
                 <a
                   href={l.instagram ?? siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${l.name} on Instagram`}
-                  className={`relative block aspect-[4/5] overflow-hidden rounded-[2rem] bg-night transition-transform duration-500 group-hover:-translate-y-2 ${
-                    isPres
-                      ? "shadow-[0_40px_80px_-36px_rgba(170,88,35,0.55)] ring-2 ring-gold/60"
-                      : "shadow-[0_28px_60px_-34px_rgba(17,33,39,0.6)] ring-1 ring-line"
-                  }`}
+                  className="relative block aspect-[4/5] overflow-hidden rounded-[2rem] bg-night shadow-[0_28px_60px_-34px_rgba(17,33,39,0.6)] ring-1 ring-line transition-transform duration-500 group-hover:-translate-y-2"
                 >
-                  <Image
-                    src={l.photo}
-                    alt={l.name}
-                    fill
-                    draggable={false}
-                    sizes="420px"
-                    className="select-none object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
-                  />
+                  {l.photo ? (
+                    <Image
+                      src={l.photo}
+                      alt={l.name}
+                      fill
+                      draggable={false}
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 320px"
+                      quality={90}
+                      className="select-none object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-gold/80 to-teal-deep">
+                      <span className="font-display text-6xl font-extrabold text-paper/90">
+                        {l.name
+                          .split(" ")
+                          .map((w) => w[0])
+                          .slice(0, 2)
+                          .join("")}
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent" />
-                  <span className="absolute right-5 top-5 grid size-9 place-items-center rounded-full bg-night/50 text-paper opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
+                  <span className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-night/50 text-paper opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
                     <Instagram className="size-4" />
                   </span>
                   {isPres && (
-                    <span className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-[0.64rem] font-bold uppercase tracking-wide text-paper shadow-lg">
-                      <Star className="size-3.5" /> President
+                    <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold px-3.5 py-1.5 text-[0.6rem] font-bold uppercase tracking-wide text-paper shadow-lg">
+                      <Star className="size-3" /> President
                     </span>
                   )}
-                  <div className="absolute inset-x-0 bottom-0 p-6 text-paper sm:p-7">
-                    <div className={`h-1 rounded-full ${isPres ? "w-14 bg-gold" : "w-10 bg-teal-bright"}`} />
-                    <h3
-                      className={`mt-4 font-display font-extrabold leading-[1.02] ${
-                        isPres ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"
-                      }`}
-                    >
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-paper">
+                    <div className={`h-1 rounded-full ${isPres ? "w-12 bg-gold" : "w-9 bg-teal-bright"}`} />
+                    <h3 className="mt-3 font-display text-2xl font-extrabold leading-[1.05]">
                       {l.name}
                     </h3>
-                    <div className="mt-1.5 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-mint">
+                    <div className="mt-1.5 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mint">
                       {l.role}
                     </div>
                   </div>
@@ -305,7 +297,7 @@ export default function AboutPage() {
                     {d.phone && (
                       <a
                         href={`tel:${d.phone.replace(/\s/g, "")}`}
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-deep hover:text-gold"
+                        className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-gold-deep hover:text-gold"
                       >
                         <Phone className="size-3.5" /> {d.phone}
                       </a>

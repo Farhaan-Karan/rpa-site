@@ -97,8 +97,9 @@ export function Footer() {
                 </h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((link) => {
+                    // min-h-11 keeps the touch area at ~44px on phones
                     const cls =
-                      "group inline-flex items-center gap-1 text-[0.95rem] text-white/65 transition-colors hover:text-paper";
+                      "group inline-flex min-h-11 items-center gap-1 text-[0.95rem] text-white/65 transition-colors hover:text-paper sm:min-h-0";
                     return (
                       <li key={link.label}>
                         {"external" in link && link.external ? (
